@@ -1,4 +1,4 @@
-from stats import num_of_words, character_counts
+from stats import num_of_words, character_counts, organised
 
 def get_book_text(filepath):
     with open(filepath) as f:
@@ -8,7 +8,7 @@ def get_book_text(filepath):
 def main(input):
     book_data = get_book_text(input)
     num_of_words(book_data)
-    character_counts(book_data)
-    
+    character_dict = character_counts(book_data)
+    organised(character_dict)
 
 main("./books/frankenstein.txt")
