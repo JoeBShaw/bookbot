@@ -1,5 +1,6 @@
 #importing functions from the other .py file
 from stats import num_of_words, character_counts, organised
+import sys
 
 #getting the text from the book and reading it
 def get_book_text(filepath):
@@ -25,4 +26,8 @@ def main(input):
     dict_sorting(alist)
     print("======== END ========")
 
-main("books/frankenstein.txt")
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+else:
+    main(sys.argv[1])
