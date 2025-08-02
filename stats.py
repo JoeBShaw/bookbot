@@ -5,7 +5,7 @@ def num_of_words(text):
     for word in words:
         counter += 1
     print("-------- Word Count --------")
-    print(f"{counter} words found in the document")    
+    print(f"Found {counter} total words")    
     
 
 # counts the number of times each character is shown in the text
@@ -21,14 +21,21 @@ def character_counts(text):
                 new_count = char_dict[character]
                 new_count += 1
                 char_dict[character] = new_count
-    # print(char_dict)
     return char_dict
 
+# the function for sorting the list of dictionaries by number
+def sort_on(items):
+    return items["num"]
 
+# takes a dictionary and nests it inside a list
+#sorts it and only saves letters from the characters 
 def organised(dictionary):
     organised_list = []
     for character, count in dictionary.items():
-        organised_list.append(f"char:{character}, num:{count}")
-    organised_list.sort()
+        if character.isalpha() == True:
+            organised_list.append({"char":character, "num": count})
+        else:
+            pass
+    organised_list.sort(reverse=True, key=sort_on )
     print("-------- Characters Counted --------")
-    print(organised_list)
+    return organised_list
